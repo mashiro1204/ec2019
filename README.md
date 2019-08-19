@@ -6,7 +6,7 @@
 
 | step        | content                                 |  annotation  |
 | --------    | -----:                                  | :----: |
-| 1           | 单个peltier驱动电路（无serial 通信）      |   ?    |
+| 1           | 单个peltier驱动电路（无serial 通信）      |   https://github.com/mashiro1204/ec2019/blob/master/Hua/step1.md    |
 | 2           | 单个peltier驱动电路(serial 通信)         |    ?   |
 | 3           | 多个peltier驱动电路(serial 通信)          |    ?   |
 | 4           | unity连携                                |   ?    |
