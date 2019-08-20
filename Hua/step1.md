@@ -39,6 +39,9 @@
 Vccの設定が問題あるのでは？
 
 
+
+
+
 ---
 ### version2 定電流回路
 レファレンスを使って改良　https://www.analog.com/media/jp/technical-documentation/Shoshinsha_OP_amp/MSJ-004_jp.pdf
@@ -51,9 +54,14 @@ Vccの設定が問題あるのでは？
 #### 修正
 ampの+側はR1に繋がらないようにしました
 #### 動作結果
-成功
+成功？
 - 使う回路
 ![amp+pnp回路](..\Hua\screenshot\2.jpg)
+
+
+
+
+
 ---
 ### version3 負荷駆動回路(カレントミラー回路)
 - [これ](http://www3.airnet.ne.jp/saka/hardware/electric_current/elec_cur01.html)と[これ](https://ameblo.jp/sh1n00n/entry-12481929732.html)を参考にする
