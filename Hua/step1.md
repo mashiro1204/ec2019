@@ -69,6 +69,13 @@ ampの+側はR1に繋がらないようにしました
 
 
 
+---
+### version4　駆動アンプを使う回路
+- [これ](http://www.osakac.ac.jp/labs/tomioka/study/2004/ishimi/index.html)を参考にする
+
+- ![使う回路図](..\Hua\screenshot\3.jpg)
+
+
 ## 参考資料
 - [ペルチェ素子](https://www.yasuda-elec.com/service/peltier.html)
 - [lm358を使う定電流回路](http://www3.airnet.ne.jp/saka/hardware/electric_current/elec_cur01.html)
