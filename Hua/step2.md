@@ -9,7 +9,8 @@ mbed出力+ ボルテージフォロア
 
 使うamp：lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 
-![ボルテージフォロア回路](https://edmond123456.github.io/img/my_fig/cal1.JPG)
+
+![ボルテージフォロア回路](https://github.com/mashiro1204/ec2019/tree/master/Hua/screenshot/1.png)
 
 
 
