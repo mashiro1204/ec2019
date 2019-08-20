@@ -10,10 +10,8 @@ mbed出力+ ボルテージフォロア
 使うamp：lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 
 
-![ボルテージフォロア回路](Hua/screenshot/1.png)
+![ボルテージフォロア回路](../Hua/screenshot/1.png)
 
-![ボルテージフォロア回路](https://github.com/mashiro1204/ec2019/blob/master/Hua/screenshot/1.png
-)
 
 
 結果：失敗　ペルチェ素子の両側に電圧がほぼ0Vでした．
