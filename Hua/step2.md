@@ -27,8 +27,9 @@ lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 
 
 ### version2
-PWM駆動による定電流
-
+先生と相談した結果，PWM駆動による
+- 使う回路
+![回路](..\Hua\screenshot\4.jpg)
 
 
 
