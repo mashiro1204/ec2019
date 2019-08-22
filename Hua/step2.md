@@ -27,10 +27,11 @@ lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 
 
 ### version2
-PWM駆動による定電流
+先生と相談した結果，PWM駆動による
+- 使う回路
+![回路](..\Hua\screenshot\4.jpg)
 
-
-
+![回路](https://github.com/mashiro1204/ec2019/blob/master/Hua/screenshot/1.png)
 
 ## 参考資料
 - [LM358](http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
