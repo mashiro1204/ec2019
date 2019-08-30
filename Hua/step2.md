@@ -35,10 +35,15 @@ lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 
 - 使うモジュール
 model:DBH-12v
+![接続](..\Hua\screenshot\6.jpg)
 ![接続](..\Hua\screenshot\5.png)
 
 1.mbedからpwm信号の出力ーー成功
-2.pwn信号をDBH-12vに入れて，ペルチェ素子を駆動させるーー接続相談済み，動作確認待ち
+2.pwn信号をDBH-12vに入れて，ペルチェ素子を駆動させるーー成功
+
+![駆動](..\Hua\screenshot\7.jpg)
+
+- 使うツール
 
 
 ## 参考資料
