@@ -38,12 +38,55 @@ model:DBH-12v
 ![接続](..\Hua\screenshot\6.jpg)
 ![接続](..\Hua\screenshot\5.png)
 
-1.mbedからpwm信号の出力ーー成功
-2.pwn信号をDBH-12vに入れて，ペルチェ素子を駆動させるーー成功
+#### 1.mbedからpwm信号の出力ーー成功
+#### 2.pwn信号をDBH-12vに入れて，ペルチェ素子を駆動させるーー成功
 
 ![駆動](..\Hua\screenshot\7.jpg)
+mbed側のソースコード
+```C#
+#include "mbed.h"
+ 
+PwmOut thermistor(p21);
+ 
+int main() {
+    // specify period first, then everything else
+    thermistor.period(4.0f);  // 4 second period
+    thermistor.pulsewidth(2); // 2 second pulse (on)
+    while(1);          // led flashing
+}
+```
 
+#### 3.サーミスタから温度データをmbedへ--成功
+参考：https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
+- 使うサーミスタ
+https://docs-apac.rs-online.com/webdocs/162b/0900766b8162bf78.pdf
+
+mbed側のソースコード
+```C#
+#include "mbed.h"
+AnalogIn thr(p15);
+
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        thr_res = log(((3.3*(1/thr_val))-1)*1000);
+        temperature = ((1/(0.001129148+(0.000234125*thr_res)+(0.0000000876741*thr_res*thr_res*thr_res)))-273.15);
+        printf("Temperature = %3.3f\r\n", temperature);
+        printf("Resistance = %3.3f\r\n", thr_res);
+        wait(1);
+    }
+}
+```
+今回使うサーミスタの温度と抵抗の関係を調べる必要がある
 - 使うツール
+
+
+
+mbed-thermistor
+https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
+
 
 
 ## 参考資料
