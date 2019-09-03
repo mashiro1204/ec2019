@@ -72,14 +72,110 @@ int main() {
         thr_val = (thr.read()*4095);
         thr_val = ((thr_val*3.3)/4095); //voltage of p15
         thr_res = log(((3.3*(1/thr_val))-1)*1000);
-        temperature = ((1/(0.001129148+(0.000234125*thr_res)+(0.0000000876741*thr_res*thr_res*thr_res)))-273.15);
+        //temperature = ((1/(0.001129148+(0.000234125*thr_res)+(0.0000000876741*thr_res*thr_res*thr_res)))-273.15);
+        temperature = 700*thr_res-675;
         printf("Temperature = %3.3f\r\n", temperature);
         printf("Resistance = %3.3f\r\n", thr_res);
         wait(1);
     }
 }
 ```
-今回使うサーミスタの温度と抵抗の関係を調べる必要がある
+
+- 今回使うサーミスタの温度と抵抗の関係を調べる必要がある
+調べた温度と抵抗の関係
+![温度と抵抗の関係](..\Hua\screenshot\8.png)
+
+温度と抵抗の関係を調べつためのコード
+```python
+
+import matplotlib.pyplot as plt
+from pylab import mpl
+"""
+https://blog.csdn.net/deramer1/article/details/79055281
+"""
+ 
+x = [0.980,1.000,1.021,1.042,1.063,1.084,1.106]
+y = [20,25,30,35,40,45,50]
+ 
+ 
+"""完成拟合曲线参数计算"""
+def liner_fitting(data_x,data_y):
+      size = len(data_x)
+      i=0
+      sum_xy=0
+      sum_y=0
+      sum_x=0
+      sum_sqare_x=0
+      average_x=0
+      average_y=0
+      while i<size:
+          sum_xy+=data_x[i]*data_y[i]
+          sum_y+=data_y[i]
+          sum_x+=data_x[i]
+          sum_sqare_x+=data_x[i]*data_x[i]
+          i+=1
+      average_x=sum_x/size
+      average_y=sum_y/size
+      return_k=(size*sum_xy-sum_x*sum_y)/(size*sum_sqare_x-sum_x*sum_x)
+      return_b=average_y-average_x*return_k
+      print(return_k,return_b)
+      return [return_k,return_b]
+ 
+ 
+"""完成完后曲线上相应的函数值的计算"""
+def calculate(data_x,k,b):
+    datay=[]
+    for x in data_x:
+        datay.append(k*x+b)
+    return datay
+ 
+ 
+"""完成函数的绘制"""
+def draw(data_x,data_y_new,data_y_old):
+    plt.plot(data_x,data_y_new,label="curve",color="black")
+    plt.scatter(data_x,data_y_old,label="data")
+    mpl.rcParams['font.sans-serif'] = ['SimHei']
+    mpl.rcParams['axes.unicode_minus'] = False
+    plt.title("one dimension ")
+    plt.legend(loc="upper left")
+    plt.show()
+ 
+ 
+parameter = liner_fitting(x,y)
+draw_data = calculate(x,parameter[0],parameter[1])
+
+draw(x,draw_data,y)
+```
+計算結果：
+k=238.06769543990123
+b=-213.13455798993132
+T=k*Rth+b
+
+9/3更新したmbed側のソースコード
+```C#
+#include "mbed.h"
+AnalogIn thr(p15);
+
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        //thr_res = log(((3.3*(1/thr_val))-1)*1000);
+        //temperature = ((1/(0.001129148+(0.000234125*thr_res)+(0.0000000876741*thr_res*thr_res*thr_res)))-273.15);
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        //printf("voltage = %3.3f\r\n", thr_val);
+        printf("Temperature = %3.3f\r\n", temperature);
+        printf("Resistance = %3.3f\r\n", thr_res);
+        wait(1);
+    }
+}
+```
+![温度をmbedに入力する](..\Hua\screenshot\9.png)
+
+
+
 - 使うツール
 
 
@@ -87,6 +183,15 @@ int main() {
 mbed-thermistor
 https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
 
+
+#### 4.設定した温度になるようにFeedback
+
+
+
+
+
+
+#### 5.unityから温度指令を出す
 
 
 ## 参考資料
