@@ -31,8 +31,6 @@ lm358(http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 - 使う回路
 ![回路](..\Hua\screenshot\4.jpg)
 
-![回路](https://github.com/mashiro1204/ec2019/blob/master/Hua/screenshot/1.png)
-
 - 使うモジュール
 model:DBH-12v
 ![接続](..\Hua\screenshot\6.jpg)
@@ -42,7 +40,7 @@ model:DBH-12v
 #### 2.pwn信号をDBH-12vに入れて，ペルチェ素子を駆動させるーー成功
 
 ![駆動](..\Hua\screenshot\7.jpg)
-mbed側のソースコード
+- mbed側のソースコード
 ```C#
 #include "mbed.h"
  
@@ -57,11 +55,12 @@ int main() {
 ```
 
 #### 3.サーミスタから温度データをmbedへ--成功
-参考：https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
+- 参考
+https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
 - 使うサーミスタ
 https://docs-apac.rs-online.com/webdocs/162b/0900766b8162bf78.pdf
 
-mbed側のソースコード
+- mbed側のソースコード
 ```C#
 #include "mbed.h"
 AnalogIn thr(p15);
@@ -82,10 +81,10 @@ int main() {
 ```
 
 - 今回使うサーミスタの温度と抵抗の関係を調べる必要がある
-調べた温度と抵抗の関係
+- 調べた温度と抵抗の関係
 ![温度と抵抗の関係](..\Hua\screenshot\8.png)
 
-温度と抵抗の関係を調べつためのコード
+- 温度と抵抗の関係を調べつためのコード
 ```python
 
 import matplotlib.pyplot as plt
@@ -151,7 +150,7 @@ k=238.06769543990123
 b=-213.13455798993132
 T=k*Rth+b
 
-9/3更新したmbed側のソースコード
+- 9/3更新したmbed側のソースコード
 ```C#
 #include "mbed.h"
 AnalogIn thr(p15);
@@ -172,19 +171,52 @@ int main() {
     }
 }
 ```
+- mbedからパソコンへの入力
 ![温度をmbedに入力する](..\Hua\screenshot\9.png)
 
 
 
 - 使うツール
-
-
-
 mbed-thermistor
 https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
 
 
 #### 4.設定した温度になるようにFeedback
+- 実装図
+
+
+
+##### version 1　温度とpwn出力時間の対応関係の設定
+32-40度
+32度　on時間ーー100%
+40度　on時間ーー0%
+
+y=kx+b(y=%,x=温度)
+k=-12.5
+b=400
+
+mbed側のソースコード
+```C#
+#include "mbed.h"
+AnalogIn thr(p15);
+PwmOut thermistor(p21);
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    while(1) {
+        //thermistor
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p21
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        printf("Temperature = %3.3f\r\n", temperature);
+        printf("Resistance = %3.3f\r\n", thr_res);
+        // pwn output
+        thermistor.period(2.0f);  // 2 second period
+        thermistor.pulsewidth((-12.5*temperature+400)/50); // setted second pulse (on)
+        wait(2);
+    }
+}
+```
 
 
 
@@ -197,3 +229,5 @@ https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
 ## 参考資料
 - [LM358](http://www.ti.com/lit/ds/symlink/lm358-n.pdf)
 - [ペルチェ素子](https://www.yasuda-elec.com/service/peltier.html)
+- [mbed-thermistor](https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed)
+- [python最小二乗法](https://blog.csdn.net/deramer1/article/details/79055281)
