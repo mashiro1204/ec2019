@@ -217,8 +217,79 @@ int main() {
     }
 }
 ```
+##### 結果
+サーミスタが28度のまま維持されていた
+pwm出力が出されていないと判断した
+
+##### version 2　まずはペルチェ素子を駆動させながら温度を計測できるコードーー成功
+mbed側のソースコード
+```C#
+#include "mbed.h"
+AnalogIn thr(p15);
+PwmOut thermistor(p21);
 
 
+int main() {
+    // specify period first, then everything else
+    thermistor.period(4.0f);  // 4 second period
+    thermistor.pulsewidth(2); // 2 second pulse (on)
+    //while(1);          // led flashing
+    float thr_val=0, thr_res=0, temperature=0;
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        //thr_res = log(((3.3*(1/thr_val))-1)*1000);
+        //temperature = ((1/(0.001129148+(0.000234125*thr_res)+(0.0000000876741*thr_res*thr_res*thr_res)))-273.15);
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        //printf("voltage = %3.3f\r\n", thr_val);
+        printf("Temperature = %3.3f\r\n", temperature);
+        //printf("Resistance = %3.3f\r\n", thr_res);
+        wait(1);
+    }
+}
+```
+
+##### version 3　version2に基づいてフィードバックを加えてみるーー成功
+[これ](https://teratail.com/questions/21694)を参考にした
+mbed側のソースコード
+```C#
+#include "mbed.h"
+AnalogIn thr(p15);
+PwmOut thermistor(p21);
+
+
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    int T=40,p,start=1,min=0,max=3;
+    thermistor.period(4.0f);  // 4 second period
+    //thermistor.pulsewidth(2); // 2 second pulse (on)
+    p = start;                          //初期
+    thermistor.pulsewidth_us(p);    
+    
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        printf("Temperature = %3.3f\r\n", temperature);
+        //printf("Resistance = %3.3f\r\n", thr_res);
+        //wait(1);
+        if(temperature == T){                  //温度がTなら初期位置に
+            p = start;
+            thermistor.pulsewidth(p);
+       }else if(temperature >T){             //T度以上はminで固定
+            p = min;
+            thermistor.pulsewidth(p);
+       }else if(temperature <T){            //T度以下はmaxで固定
+            p = max;
+            thermistor.pulsewidth(p);
+       }
+        wait(1);
+    }
+}
+```
+![温度が40度に維持されている](..\Hua\screenshot\10.png)
 
 
 
