@@ -12,3 +12,12 @@ SerialPort クラスの使用設定
 
 #### serial portからmbedへ
 [これ]()を参考にする
+
+http://taka8.hateblo.jp/entry/2016/08/29/190112
+
+##### 9/4結果
+errorはないが，consoleに何の表示も出てこない
+
+NET4.0のせいか？　今疑問を持っている
+
+https://qiita.com/Fox_Kei/items/dbe10141e36f6a91ee83
