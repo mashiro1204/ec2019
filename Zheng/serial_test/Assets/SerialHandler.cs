@@ -15,10 +15,16 @@ public class SerialHandler : MonoBehaviour
 
     }
 
+    //private void Update()
+    //{
+    //    Debug.Log(serialPort.ReadLine());
+    //}
+
     void OnGUI()
     {
 
-        GUILayout.Label(serialPort.ReadLine());
+        //GUILayout.Label(serialPort.ReadLine());
+        Debug.Log(serialPort.ReadLine());
 
     }
 
