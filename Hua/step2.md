@@ -183,7 +183,7 @@ https://www.electronicwings.com/mbed/thermistor-interfacing-with-arm-mbed
 
 #### 4.設定した温度になるようにFeedback
 - 実装図
-
+![mbed側](..\Hua\screenshot\14.jpg)
 
 
 ##### version 1　温度とpwn出力時間の対応関係の設定
