@@ -68,3 +68,52 @@ int main() {
     }
 }
 ```
+
+
+9/13 4CH実装ーー成功，但しslave driver Achの方がギリギリ出せる．
+```
+#include "mbed.h"
+PwmOut p1(p21),p2(p22),p3(p23),p4(p24);
+AnalogIn thr(p15);
+Serial pc(USBTX, USBRX); // tx, rx
+ 
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    int T,T1=32,T2=40,p,start=1,min=0,max=3;
+    p1.period(4.0f);  p2.period(4.0f);p3.period(4.0f);p3.period(4.0f);// 4 second period
+    p = start;                          //初期
+    p1.pulsewidth(2);p2.pulsewidth(2);p3.pulsewidth(2);p4.pulsewidth(2);             
+     
+    T = T1;
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        printf("now=%3.1f\r\n", temperature);
+        
+        if (pc.readable()){
+            char c = pc.getc();
+            if (c == 'm'){
+                T = T2;
+            }else if (c =='b'){
+                T = T1;
+            }
+        }
+        printf("goal=%d\r\n", T);
+        
+        if(temperature == T){                  //温度がTなら初期位置に
+            p = start;
+       }else if(temperature > T){             //T度以上はminで固定
+            p = min;
+       }else if(temperature < T-2){            //T度以下はmaxで固定
+            p = max;
+       }
+        p1.pulsewidth(p);
+        p2.pulsewidth(p);
+        p3.pulsewidth(p);
+        p4.pulsewidth(p);
+        wait(1);
+    }
+}
+```
