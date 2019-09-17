@@ -117,3 +117,57 @@ int main() {
     }
 }
 ```
+
+9/16
+三電源で5ch駆動させる--成功
+#### 金属手袋に実装
+1. 現在40℃の温度が足りない
+2. 45℃にーー足りない
+3. 58℃にーー成功
+4. 温度を精確に制御ーー成功
+
+```
+#include "mbed.h"
+PwmOut p1(p21),p2(p22);
+AnalogIn thr(p15);
+Serial pc(USBTX, USBRX); // tx, rx
+ 
+int main() {
+    float thr_val=0, thr_res=0, temperature=0;
+    int T,T1=32,T2=58;
+    float p,start=0.3,min=0,max=0.8;
+    p1.period(1);  p2.period(1);// 4 second period
+    p = start;                          //初期
+    p1.pulsewidth(0.5);p2.pulsewidth(0.5);          
+     
+    T = T1;
+    while(1) {
+        thr_val = (thr.read()*4095);
+        thr_val = ((thr_val*3.3)/4095); //voltage of p15
+        thr_res = 3.3*1/thr_val-1;
+        temperature = 238.07*thr_res-213.13;
+        printf("now=%3.1f\r\n", temperature);
+        
+        if (pc.readable()){
+            char c = pc.getc();
+            if (c == 'm'){
+                T = T2;
+            }else if (c =='b'){
+                T = T1;
+            }
+        }
+        printf("goal=%d\r\n", T);
+        
+        if(temperature == T){                  //温度がTなら初期位置に
+            p = start;
+       }else if(temperature > T){             //T度以上はminで固定
+            p = min;
+       }else if(temperature < T-1){            //T度以下はmaxで固定
+            p = max;
+       }
+        p1.pulsewidth(p);
+        p2.pulsewidth(p);
+        wait(0.25);
+    }
+}
+```
