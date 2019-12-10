@@ -6,3 +6,10 @@
 
 https://www.youtube.com/watch?v=-IDZIYtt0x8
 2.冷水槽
+
+
+
+3.ヒートシンク
+
+
+
