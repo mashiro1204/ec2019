@@ -8,9 +8,9 @@
 | step        | content    |  annotation  |
 | --------    | -----:     | :----: |
 | 1           | マップ     |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/MapGenerator.cs   |
-| 2           | プレイヤー　 | https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Player.cs     |
+| 2           | プレイヤー　　　 | https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Player.cs     |
 | 3           | 敵AI       |     https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Enemy.cs   |
-| 4           | unity通信  |    https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/SerialSample.cs    |
+| 4           | unity通信　　  |    https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/SerialSample.cs    |
 
 ---
 
