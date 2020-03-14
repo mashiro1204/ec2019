@@ -11,7 +11,7 @@
 | 3           | unity连携                                |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step3.md     |
 | 4           | pwmのマイナス電流出力                                |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step4.md     |
 | 5           | 多チャネル                                |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step5.md     |
-| 6           | 持ちやすい小型冷媒装置の開発                               |   https://github.com/mashiro1204/ec2019/blob/master/Hua/step6.md     |
+| 6           | 持ちやすい小型冷媒装置の開発                               |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step6.md     |
 | 7           | 空気砲の開発                               |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step7.md     |
 
 ---
