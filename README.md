@@ -2,6 +2,18 @@
 
 ### schedule management
 
+- 鄭文韜
+
+project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng
+| step        | content    |  annotation  |
+| --------    | -----:     | :----: |
+| 1           | 地图       |   https://github.com/mashiro1204/ec2019/blob/master/Zheng/step1.md     |
+| 2           | 主人公     |  https://github.com/mashiro1204/ec2019/blob/master/Zheng/step2.md     |
+| 3           | 敌人       |     https://github.com/mashiro1204/ec2019/blob/master/Zheng/step3.md   |
+| 4           | unity连携  |    https://github.com/mashiro1204/ec2019/blob/master/Zheng/step4.md    |
+
+---
+
 - 华俊杰
 
 | step        | content                                 |  annotation  |
@@ -13,15 +25,3 @@
 | 5           | 多チャネル                                |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step5.md     |
 | 6           | 持ちやすい小型冷媒装置の開発                               |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step6.md     |
 | 7           | 空気砲の開発                               |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Hua/step7.md     |
-
----
-
-- 鄭文韜
-
-project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng
-| step        | content    |  annotation  |
-| --------    | -----:     | :----: |
-| 1           | 地图       |   https://github.com/mashiro1204/ec2019/blob/master/Zheng/step1.md     |
-| 2           | 主人公     |  https://github.com/mashiro1204/ec2019/blob/master/Zheng/step2.md     |
-| 3           | 敌人       |     https://github.com/mashiro1204/ec2019/blob/master/Zheng/step3.md   |
-| 4           | unity连携  |    https://github.com/mashiro1204/ec2019/blob/master/Zheng/step4.md    |
