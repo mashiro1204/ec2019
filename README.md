@@ -2,7 +2,7 @@
 
 ## Preview:
 
-![这里随便写文字](你刚复制的图片路径)
+![デバイス](https://github.com/nankasensei/TF_VR_Demo/blob/master/device.jpg)
 
 ## 実行動画:
 
