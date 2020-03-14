@@ -8,9 +8,9 @@ project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
 | step        | content    |  annotation  |
 | --------    | -----:     | :----: |
 | 1           | 地图       |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/MapGenerator.cs   |
-| 2           | 主人公     |  https://github.com/mashiro1204/ec2019/blob/master/Zheng/step2.md     |
-| 3           | 敌人       |     https://github.com/mashiro1204/ec2019/blob/master/Zheng/step3.md   |
-| 4           | unity连携  |    https://github.com/mashiro1204/ec2019/blob/master/Zheng/step4.md    |
+| 2           | 主人公     | https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Player.cs     |
+| 3           | 敌人       |     https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Enemy.cs   |
+| 4           | unity连携  |    https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/SerialSample.cs    |
 
 ---
 
