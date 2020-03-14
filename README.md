@@ -4,6 +4,8 @@
 
 - 鄭文韜
 
+![実行動画](https://youtu.be/1u_sJYBP724)
+
 実行動画: https://youtu.be/1u_sJYBP724
 
 プロジェクト: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
