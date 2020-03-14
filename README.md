@@ -4,7 +4,7 @@
 
 - 鄭文韜
 
-project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng
+project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
 | step        | content    |  annotation  |
 | --------    | -----:     | :----: |
 | 1           | 地图       |   https://github.com/mashiro1204/ec2019/blob/master/Zheng/step1.md     |
