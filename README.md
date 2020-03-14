@@ -4,9 +4,8 @@
 
 - 鄭文韜
 
+実行動画:
 [![Alt text](https://img.youtube.com/vi/1u_sJYBP724/0.jpg)](https://www.youtube.com/watch?v=1u_sJYBP724)
-
-実行動画: https://youtu.be/1u_sJYBP724
 
 プロジェクト: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
 | step        | content    |  annotation  |
