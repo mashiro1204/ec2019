@@ -4,13 +4,13 @@
 
 - 鄭文韜
 
-project: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
+プロジェクト: https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo
 | step        | content    |  annotation  |
 | --------    | -----:     | :----: |
-| 1           | 地图       |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/MapGenerator.cs   |
-| 2           | 主人公     | https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Player.cs     |
-| 3           | 敌人       |     https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Enemy.cs   |
-| 4           | unity连携  |    https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/SerialSample.cs    |
+| 1           | マップ     |   https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/MapGenerator.cs   |
+| 2           | プレイヤー　 | https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Player.cs     |
+| 3           | 敵AI       |     https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/Enemy.cs   |
+| 4           | unity通信  |    https://github.com/nankasensei/TF_VR_Demo/tree/master/Zheng/TF_VR_Demo/Assets/Scripts/SerialSample.cs    |
 
 ---
 
