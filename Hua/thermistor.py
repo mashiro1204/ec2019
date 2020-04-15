@@ -1,9 +1,6 @@
 
 import matplotlib.pyplot as plt
 from pylab import mpl
-"""
-https://blog.csdn.net/deramer1/article/details/79055281
-"""
  
 x = [0.980,1.000,1.021,1.042,1.063,1.084,1.106]
 y = [20,25,30,35,40,45,50]
